@@ -1,219 +1,170 @@
 package Chapter5;
-import java.util.*; 
+
+import java.util.*;
+
 /**
- * This program uses a randomized value to play a game of rock paper scissors with a user.
+ * This program uses a randomized value to play a game of rock paper scissors
+ * with a user.
  *
  * @author Grace Hopper
  */
+public class C5_34 {
 
-public class C5_34 { 
-/**
-    * Main Method
-    * 
-    * @param args arguments from command line prompt
-    */
-public static void main(String[] args){ 
+    /**
+     * Main Method
+     *
+     * @param args arguments from command line prompt
+     */
+    public static void main(String[] args) {
 
-     
+        // define imported values 
+        Scanner input = new Scanner(System.in);
 
-    // define imported values 
+        Random rand = new Random();
 
-    Scanner input = new Scanner(System.in); 
+        int myrandnum = rand.nextInt();
 
-    Random rand = new Random(); 
+        int computerWins = 0;
 
-    int myrandnum = rand.nextInt(); 
+        int userWins = 0;
 
-     
+        while (computerWins < 2 && userWins < 2) {
 
-    int computerWins = 0; 
+            // Ask the user to enter either rock, paper, or scissors 
+            System.out.print("\nEnter rock, paper, or scissors: ");
 
-    int userWins = 0; 
+            String userChoice = input.next().toLowerCase();
 
-     
+            int choice = 0;
 
-    while (computerWins < 2 && userWins < 2){ 
+            switch (userChoice) {
 
-    // Ask the user to enter either rock, paper, or scissors 
+                case "rock":
+                    choice = 1;
 
-    System.out.print("\nEnter rock, paper, or scissors: "); 
+                    break;
 
-    String userChoice = input.next().toLowerCase(); 
+                case "paper":
+                    choice = 2;
 
-    int choice = 0; 
+                    break;
 
-    switch (userChoice) { 
+                case "scissors":
+                    choice = 3;
 
-            case "rock": choice = 1; 
+                    break;
 
-            break; 
+                default:
+                    choice = 10;
 
-            case "paper": choice = 2; 
+            }
 
-            break; 
+            // ensure that the input was correct 
+            if (choice == 10) {
 
-            case "scissors": choice = 3; 
+                System.out.println("Invalid input");
 
-            break; 
+            } else {
 
-            default: choice = 10; 
+                // define variables 
+                boolean winOrLose = false;
 
-    } 
+                // Define computer input variables and generate rock, paper, or scissors 
+                String computerChoice = "";
 
-     
+                int computerNumber = (int) (Math.random() * 3);
 
-    // ensure that the input was correct 
+                computerNumber = computerNumber + 1;
 
-    if (choice == 10) { 
+                switch (computerNumber) {
 
-        System.out.println("Invalid input"); 
+                    case 1:
+                        computerChoice = "rock";
 
-    } 
+                        break;
 
-     
+                    case 2:
+                        computerChoice = "paper";
 
-    else { 
+                        break;
 
-         
+                    case 3:
+                        computerChoice = "scissors";
 
-        // define variables 
+                }
 
-        boolean winOrLose = false; 
+                System.out.println("The computer chose " + computerChoice
+                        + " and you chose " + userChoice + ".");
 
-         
+                // compute the round result 
+                if (computerNumber == choice) {
 
-            // Define computer input variables and generate rock, paper, or scissors 
+                    System.out.println("Tie!");
 
-        String computerChoice = ""; 
+                    computerWins -= 1;
 
-        int computerNumber = (int)(Math.random()*3); 
+                }
 
-        computerNumber = computerNumber + 1; 
+                if (computerNumber == 1) {
 
-        switch (computerNumber) { 
+                    if (choice == 2) {
+                        winOrLose = true;
+                    } else if (choice == 3) {
+                        winOrLose = false;
+                    }
 
-                case 1: computerChoice = "rock"; 
+                } else if (computerNumber == 2) {
 
-                break; 
+                    if (choice == 1) {
+                        winOrLose = false;
+                    } else if (choice == 3) {
+                        winOrLose = true;
+                    }
 
-                case 2: computerChoice = "paper"; 
+                } else if (computerNumber == 3) {
 
-                break; 
+                    if (choice == 1) {
+                        winOrLose = true;
+                    } else if (choice == 2) {
+                        winOrLose = false;
+                    }
 
-                case 3: computerChoice = "scissors"; 
+                }
 
-        } 
+                // output the round result and add the win to the corresponding winner 
+                if (winOrLose == true) {
 
-     
+                    System.out.println("You won this round.");
 
-        System.out.println("The computer chose " + computerChoice 
+                    userWins += 1;
 
-                + " and you chose " + userChoice + "."); 
+                } else if (winOrLose == false) {
 
-     
+                    if (computerNumber != choice) {
+                        System.out.println("You lose this round.");
+                    }
 
-         
+                    computerWins += 1;
 
-        // compute the round result 
+                }
 
-        if (computerNumber == choice) { 
+            }
 
-                System.out.println("Tie!"); 
+        }
 
-            computerWins -= 1; 
+        // tell the user their game results 
+        System.out.println("\nGame results: ");
 
-        } 
+        System.out.println("\tComputer wins: " + computerWins);
 
-     
+        System.out.println("\tYour wins:     " + userWins);
 
-        if (computerNumber == 1) { 
+        if (userWins > computerWins) {
+            System.out.println("\nYou won the game more than two times. You win.");
+        } else {
+            System.out.println("\nThe computer won the game more than two times. You lost.");
+        }
 
-            if (choice == 2) 
+    }
 
-                winOrLose = true; 
-
-            else if (choice == 3) 
-
-                winOrLose = false; 
-
-        } 
-
-     
-
-        else if (computerNumber == 2) { 
-
-            if (choice == 1) 
-
-                winOrLose = false; 
-
-            else if (choice == 3) 
-
-                winOrLose = true; 
-
-        } 
-
-     
-
-        else if (computerNumber == 3) { 
-
-            if (choice == 1) 
-
-                winOrLose = true; 
-
-            else if (choice == 2) 
-
-                winOrLose = false; 
-
-        } 
-
-     
-
-        // output the round result and add the win to the corresponding winner 
-
-        if (winOrLose == true) { 
-
-            System.out.println("You won this round."); 
-
-            userWins += 1; 
-
-        } 
-
-        else if (winOrLose == false) { 
-
-            if (computerNumber != choice) 
-
-                    System.out.println("You lose this round."); 
-
-            computerWins += 1; 
-
-        } 
-
-         
-
-    }       
-
-    } 
-
-     
-
-    // tell the user their game results 
-
-    System.out.println("\nGame results: "); 
-
-    System.out.println("\tComputer wins: " + computerWins); 
-
-    System.out.println("\tYour wins:     " + userWins); 
-
-     
-
-    if (userWins > computerWins) 
-
-        System.out.println("\nYou won the game more than two times. You win."); 
-
-    else 
-
-        System.out.println("\nThe computer won the game more than two times. You lost."); 
-
-} 
-
-} 
+}
