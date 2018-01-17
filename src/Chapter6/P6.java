@@ -2,7 +2,7 @@ package Chapter6;
 import java.util.*;
 
 /**
- * Program to tally up the votes (yes, no) entered by a user.
+ * Program to convert currency as specified by the user.
  *
  * @author Grace Hopper
  */
@@ -96,6 +96,13 @@ public class P6 {
                }
         }
     }
+    /**
+     * Conversion more accurately approximates the end total given by the user using the rate the currency runs and the deductable amount charged.
+     * @param dollarAmt dollarAmt is the amount in dollars given in exchange for foreign currency
+     * @param deductable deductable is the deductable charged on the dollar amount
+     * @param x x is the rate amount of the foreign currency ratio to one dollar
+     * @return 
+     */
     
     public static double Conversion(double dollarAmt, double deductable, double x){
         // the methid Conversion converts the user's dollars to foreign currency, using a deductable tax depending in the conversion amount.

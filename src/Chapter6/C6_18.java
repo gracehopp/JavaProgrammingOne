@@ -54,7 +54,11 @@ public class C6_18 {
     } 
 
      
-
+/**
+ * test checks the password for any difference in the conditions
+ * @param x the string (password) entered by user
+ * @return the string which signifies whether or not the user's password was correct, or which condition they might have broken
+ */
      
 
     public static String test(String x){ 
