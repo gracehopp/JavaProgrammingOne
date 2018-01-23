@@ -1,182 +1,128 @@
 package Chapter6;
+
 import java.util.*;
+
 /**
  * Program to check the security of a user password.
  *
  * @author Grace Hopper
  */
-public class C6_18 { 
+public class C6_18 {
+
     /**
-    * Main Method
-    * 
-    * @param args arguments from command line prompt
-    */
-    public static void main(String[] args){ 
+     * Main Method
+     *
+     * @param args arguments from command line prompt
+     */
+    public static void main(String[] args) {
 
-         
-
-        Scanner input = new Scanner(System.in); 
-
- 
+        Scanner input = new Scanner(System.in);
 
         // Prompt user to enter a password 
+        String x;
 
-        String x; 
+        int l = 0;
 
-        int l = 0; 
+        int count = 0;
 
-        int count = 0; 
+        char n;
 
-        char n; 
+        boolean condition = true;
 
-         
+        System.out.print("Enter your password: ");
 
-        boolean condition = true; 
+        x = input.nextLine();
 
-         
+        l = x.length() - 1;
 
-            System.out.print("Enter your password: "); 
-
-            x = input.nextLine(); 
-
-         
-
-            l = x.length() - 1; 
-
-            n = x.charAt(l); 
-
-             
+        n = x.charAt(l);
 
 // pass the password to new method for testing 
+        test(x);
 
-            test(x); 
+    }
 
-    } 
-
-     
-
-     
-
-    public static String test(String x){ 
-
-             
+    /**
+     * test checks the password for any difference in the conditions
+     *
+     * @param x the string (password) entered by user
+     * @return the string which signifies whether or not the user's password was
+     * correct, or which condition they might have broken
+     */
+    public static String test(String x) {
 
         // This method tests the password and outputs valid or invalid 
+        // Define variables 
+        int l = x.length() - 1,
+                count = 0;
 
- 
+        char n = x.charAt(l);
 
-  // Define variables 
+        boolean valid = false,
+                condition = false;
 
-        int l = x.length() - 1, 
-
-                count = 0; 
-
-         
-
-        char n = x.charAt(l); 
-
-         
-
-        boolean valid = false, 
-
-                condition = false; 
-
-         
-
-        String c1 = "",  
-
-               s1 = ""; 
+        String c1 = "",
+                s1 = "";
 
         // Start testing conditions 
+        if ((l + 1) < 8) {
 
- 
+            condition = false;
 
-            if ((l+1) < 8){ 
+            System.out.println("Invalid Password");
 
-                condition = false; 
+            System.out.println("A password must have at least eight characters");
 
-                System.out.println("Invalid Password"); 
+            System.exit(0);
 
-                System.out.println("A password must have at least eight characters"); 
-
-                System.exit(0); 
-
-            } 
-
-             
+        }
 
 // the following algorithm transfers the password to an array to check for any non alphanumeric characters 
+        char[] charArray = x.toCharArray();
 
-                 char[] charArray = x.toCharArray(); 
+        for (char c : charArray) {
 
-                  
+            if (!Character.isLetterOrDigit(c)) {
 
-            for(char c:charArray) 
+                condition = false;
 
-            { 
+                System.out.println("Invalid Password");
 
-                if (!Character.isLetterOrDigit(c)){ 
+                System.out.println("A password must contain only letters and digits");
 
-                        condition = false; 
+                System.exit(0);
 
-                        System.out.println("Invalid Password"); 
+            }
 
-                        System.out.println("A password must contain only letters and digits"); 
+        }
 
-                        System.exit(0); 
+        for (int i = 0, len = x.length(); i < len; i++) {
 
-                } 
+            if (Character.isDigit(x.charAt(i))) {
 
-             
+                count++;
 
-            } 
+            }
 
-             
+        }
 
-            for (int i = 0, len = x.length(); i < len; i++){ 
+        if (count < 2) {
 
-                if(Character.isDigit(x.charAt(i))){ 
+            condition = false;
 
-                    count++; 
+            System.out.println("Invalid Password");
 
-                } 
+            System.out.println("A password must contain at least two digits");
 
-            } 
+            System.exit(0);
 
-             
+        } // The code will have already terminated if any of the conditions were false. At this point, the all options are ruled out, and the password is valid. 
+        else {
+            System.out.println("Valid Password");
+        }
 
-            if (count < 2) { 
+        return s1;
 
-                    condition = false; 
+    }
 
-                    System.out.println("Invalid Password"); 
-
-                    System.out.println("A password must contain at least two digits"); 
-
-                    System.exit(0); 
-
-            } 
-
-             
-
- 
-
-// The code will have already terminated if any of the conditions were false. At this point, the all options are ruled out, and the password is valid. 
-
-            else 
-
-                System.out.println("Valid Password"); 
-
-             
-
-            return s1; 
-
-    } 
-
-} 
-
-     
-
- 
-
- 
+}
