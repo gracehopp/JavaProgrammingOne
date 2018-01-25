@@ -8,7 +8,7 @@ import java.util.*;
 public class P7 {
     /**
      * Main Method
-     * @param args 
+     * @param args arguments from command line prompt
      */
     public static void main(String[] args){
         // the main method asks for the user to define an array length and passes this array to void method Method1

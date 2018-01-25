@@ -2,9 +2,13 @@ package Chapter8;
 import java.util.*;
 /**
  *
- * @author unico
+ * @author Grace Hopper
  */
 public class P8 {
+    /**
+     * main method
+     * @param args arguments from command line prompt
+     */
     public static void main(String[] args){
         // variables defined
         Scanner input = new Scanner(System.in);
