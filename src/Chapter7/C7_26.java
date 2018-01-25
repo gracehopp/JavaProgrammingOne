@@ -8,7 +8,7 @@ import java.util.*;
 public class C7_26 {
     /**
      * main method
-     * @param args 
+     * @param args arguments from command line prompt
      */
     public static void main(String[] args){ 
 
