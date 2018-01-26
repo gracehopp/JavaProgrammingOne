@@ -3,11 +3,12 @@ package Chapter7;
 import java.util.*;
 /**
  * program compiles and sorts students and finds their scores
+ * 
  * @author Grace Hopper
  */
 public class C7_1 {
     /**
-     * main method
+     * main method controls all the code needed for the program to execute
      * @param args arguments from command line prompt
      */
     public static void main(String[] args){ 

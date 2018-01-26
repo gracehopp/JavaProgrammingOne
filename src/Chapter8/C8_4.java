@@ -1,12 +1,13 @@
 package Chapter8;
 import java.util.*;
 /**
- *
- * @author unico
+ * Program explores the usability of mutlidimensional arrays
+ * 
+ * @author Grace Hopper
  */
 public class C8_4 {
     /**
-     * 
+     * main method controls all the necessary code for the program
      * @param args arguments from command line prompt
      */
     public static void main(String[] args){ 

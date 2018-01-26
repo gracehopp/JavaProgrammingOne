@@ -7,7 +7,7 @@ import java.util.*;
  **/
 public class P7 {
     /**
-     * Main Method
+     * Main Method sends the array entered to method Method1
      * @param args arguments from command line prompt
      */
     public static void main(String[] args){
@@ -21,8 +21,8 @@ public class P7 {
         
     }
     /**
-     * method one counts elements in an array 
-     * @param array 
+     * Method1 counts elements in an array and sends it to Method2
+     * @param array the array of numbers defined by the user
      */
     public static void Method1(int[] array){
         // this method aske for the user to define a list and uses a for loop to fill the array as defined in the main method
@@ -35,9 +35,9 @@ public class P7 {
         Method2(array);
     }
     /**
-     * 
-     * @param array
-     * @return 
+     * Method2 finds the average and sends it to Method3
+     * @param array the array of numbers defined by the user
+     * @return returns n, the average
      */
     public static double Method2(int[] array){
         double n = 0;
@@ -52,8 +52,8 @@ public class P7 {
         return n;
     }
     /**
-     * 
-     * @param array 
+     * Method3 prints the array.
+     * @param array the array of numbers defined by the user
      */
     public static void Method3(int[] array){
         System.out.print("The array's contents are >> [");

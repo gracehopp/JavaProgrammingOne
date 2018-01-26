@@ -7,7 +7,8 @@ import java.util.*;
  */
 public class C7_26 {
     /**
-     * main method
+     * main method controls the output of the code, the input of the two arrays, and sends them to method equals
+     * 
      * @param args arguments from command line prompt
      */
     public static void main(String[] args){ 

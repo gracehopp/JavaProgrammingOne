@@ -1,12 +1,13 @@
 package Chapter8;
 import java.util.*;
 /**
- *
+ * Program allows for the user to enter "Salesman data" and stores it according to salesman ID and day on which the sales occured
+ * 
  * @author Grace Hopper
  */
 public class P8 {
     /**
-     * main method
+     * main method controls all the code
      * @param args arguments from command line prompt
      */
     public static void main(String[] args){
