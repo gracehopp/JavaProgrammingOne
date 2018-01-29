@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Program allows for the user to enter "Salesman data" and stores it according
- * to salesman ID and day on which the sales occured
+ * to salesman ID and day on which the sales occurred
  *
  * @author Grace Hopper
  */
